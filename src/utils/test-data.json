@@ -1,0 +1,267 @@
+[
+    {
+        "instance": {
+            "architecture": "x86_64",
+            "aws_instance_metadata_service_endpoint_config_status": "applied",
+            "aws_instance_metadata_service_endpoint_enabled": "enabled",
+            "aws_instance_metadata_service_hop_limit": 1,
+            "aws_instance_metadata_service_v2_required": false,
+            "common": {
+                "account": "Alkermes R&D Applications DEV Account",
+                "account_id": "063320236267",
+                "account_status": "DEFAULT",
+                "auto_id": 747,
+                "availability_zone": "us-east-1a",
+                "cloud": "AWS",
+                "creation_timestamp": "2023-07-27 09:05:35",
+                "discovered_timestamp": "2023-07-27 09:07:48",
+                "modified_timestamp": "2023-07-27 09:07:48",
+                "namespace_id": "arn:aws:ec2:us-east-1:063320236267:instance/i-07024d066892a55ac",
+                "organization_service_id": 6,
+                "provider_id": "i-07024d066892a55ac",
+                "region": "us-east-1",
+                "resource_id": "instance:6:us-east-1:i-07024d066892a55ac:",
+                "resource_name": "ECS Instance - EC2ContainerService-patparser",
+                "resource_type": "instance",
+                "tags": {
+                    "Description": "This instance is the part of the Auto Scaling group which was created through ECS Console",
+                    "Name": "ECS Instance - EC2ContainerService-patparser",
+                    "aws:autoscaling:groupName": "EC2ContainerService-patparser-EcsInstanceAsg-BEZUX1YWAPEG",
+                    "aws:cloudformation:logical-id": "EcsInstanceAsg",
+                    "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:063320236267:stack/EC2ContainerService-patparser/2a0335f0-6b07-11ed-9718-0e436d8b416b",
+                    "aws:cloudformation:stack-name": "EC2ContainerService-patparser"
+                }
+            },
+            "create_time": "2023-07-27 09:05:35",
+            "detailed_monitoring": true,
+            "image_id": "ami-0fe5f366c083f59ca",
+            "instance_id": "i-07024d066892a55ac",
+            "instance_type": "m5.2xlarge",
+            "key_name": [
+                "patparser-ecskey"
+            ],
+            "launch_time": "2023-07-27T09:05:35Z",
+            "network_resource_id": "privatenetwork:6:us-east-1:vpc-debbb4a7:",
+            "platform": "linux",
+            "private_ip_address": "10.237.160.110",
+            "role_name": "AmazonSSMRoleForInstancesQuickSetup",
+            "role_resource_id": "servicerole:6:AROAQ5PROEDVRYT6BJPQA:",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_transition_reason": "",
+            "subnet_resource_id": "privatesubnet:6:us-east-1:subnet-be826ef5:",
+            "tenancy": "default"
+        },
+        "resource_type": "instance"
+    },
+    {
+        "instance": {
+            "architecture": "x86_64",
+            "aws_instance_metadata_service_endpoint_config_status": "applied",
+            "aws_instance_metadata_service_endpoint_enabled": "enabled",
+            "aws_instance_metadata_service_hop_limit": 1,
+            "aws_instance_metadata_service_v2_required": false,
+            "common": {
+                "account": "Alkermes R&D Applications DEV Account",
+                "account_id": "063320236267",
+                "account_status": "DEFAULT",
+                "auto_id": 748,
+                "availability_zone": "us-east-1a",
+                "cloud": "AWS",
+                "creation_timestamp": "2023-07-27 09:05:35",
+                "discovered_timestamp": "2023-07-27 09:07:48",
+                "modified_timestamp": "2023-07-27 09:07:48",
+                "namespace_id": "arn:aws:ec2:us-east-1:063320236267:instance/i-0cf1eac4607989d43",
+                "organization_service_id": 6,
+                "provider_id": "i-0cf1eac4607989d43",
+                "region": "us-east-1",
+                "resource_id": "instance:6:us-east-1:i-0cf1eac4607989d43:",
+                "resource_name": "ECS Instance - EC2ContainerService-patparser",
+                "resource_type": "instance",
+                "tags": {
+                    "Description": "This instance is the part of the Auto Scaling group which was created through ECS Console",
+                    "Name": "ECS Instance - EC2ContainerService-patparser",
+                    "aws:autoscaling:groupName": "EC2ContainerService-patparser-EcsInstanceAsg-BEZUX1YWAPEG",
+                    "aws:cloudformation:logical-id": "EcsInstanceAsg",
+                    "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:063320236267:stack/EC2ContainerService-patparser/2a0335f0-6b07-11ed-9718-0e436d8b416b",
+                    "aws:cloudformation:stack-name": "EC2ContainerService-patparser"
+                }
+            },
+            "create_time": "2023-07-27 09:05:35",
+            "detailed_monitoring": true,
+            "image_id": "ami-0fe5f366c083f59ca",
+            "instance_id": "i-0cf1eac4607989d43",
+            "instance_type": "m5.2xlarge",
+            "key_name": [
+                "patparser-ecskey"
+            ],
+            "launch_time": "2023-07-27T09:05:35Z",
+            "network_resource_id": "privatenetwork:6:us-east-1:vpc-debbb4a7:",
+            "platform": "linux",
+            "private_ip_address": "10.237.160.220",
+            "role_name": "AmazonSSMRoleForInstancesQuickSetup",
+            "role_resource_id": "servicerole:6:AROAQ5PROEDVRYT6BJPQA:",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_transition_reason": "",
+            "subnet_resource_id": "privatesubnet:6:us-east-1:subnet-be826ef5:",
+            "tenancy": "default"
+        },
+        "resource_type": "instance"
+    },
+    {
+        "instance": {
+            "architecture": "x86_64",
+            "aws_instance_metadata_service_endpoint_config_status": "applied",
+            "aws_instance_metadata_service_endpoint_enabled": "enabled",
+            "aws_instance_metadata_service_hop_limit": 1,
+            "aws_instance_metadata_service_v2_required": false,
+            "common": {
+                "account": "Alkermes Clinical NON-PROD Account",
+                "account_id": "768971272710",
+                "account_status": "DEFAULT",
+                "auto_id": 749,
+                "availability_zone": "us-east-1a",
+                "cloud": "AWS",
+                "creation_timestamp": "2023-07-27 09:30:18",
+                "discovered_timestamp": "2023-07-27 09:34:09",
+                "modified_timestamp": "2023-07-27 10:34:12",
+                "namespace_id": "arn:aws:ec2:us-east-1:768971272710:instance/i-01e22400220fe6c9c",
+                "organization_service_id": 4,
+                "provider_id": "i-01e22400220fe6c9c",
+                "region": "us-east-1",
+                "resource_id": "instance:4:us-east-1:i-01e22400220fe6c9c:",
+                "resource_name": "aws-rscon-dne01",
+                "resource_type": "instance",
+                "tags": {
+                    "Name": "aws-rscon-dne01"
+                }
+            },
+            "create_time": "2023-07-27 09:30:18",
+            "detailed_monitoring": false,
+            "image_id": "ami-06a976cbde3d97bd5",
+            "instance_id": "i-01e22400220fe6c9c",
+            "instance_type": "r6i.2xlarge",
+            "key_name": [
+                "aws-rscon-dev"
+            ],
+            "launch_time": "2023-07-27T09:30:18Z",
+            "network_resource_id": "privatenetwork:4:us-east-1:vpc-0c28e6e1f5321be5c:",
+            "platform": "linux",
+            "private_ip_address": "10.238.160.125",
+            "role_name": "alk-rscon-ssm-role",
+            "role_resource_id": "servicerole:4:AROA3GCSCOIDOWEIFRN5G:",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_transition_reason": "",
+            "subnet_resource_id": "privatesubnet:4:us-east-1:subnet-0b001a6189bd598c0:",
+            "tenancy": "default"
+        },
+        "resource_type": "instance"
+    },
+    {
+        "instance": {
+            "architecture": "x86_64",
+            "aws_instance_metadata_service_endpoint_config_status": "applied",
+            "aws_instance_metadata_service_endpoint_enabled": "enabled",
+            "aws_instance_metadata_service_hop_limit": 1,
+            "aws_instance_metadata_service_v2_required": false,
+            "common": {
+                "account": "Alkermes IT DEV Account",
+                "account_id": "385621241076",
+                "account_status": "DEFAULT",
+                "auto_id": 750,
+                "availability_zone": "us-east-1a",
+                "cloud": "AWS",
+                "creation_timestamp": "2023-07-27 10:38:55",
+                "discovered_timestamp": "2023-07-27 10:52:19",
+                "modified_timestamp": "2023-07-27 10:52:19",
+                "namespace_id": "arn:aws:ec2:us-east-1:385621241076:instance/i-01678cddce5b9a6d2",
+                "organization_service_id": 9,
+                "provider_id": "i-01678cddce5b9a6d2",
+                "region": "us-east-1",
+                "resource_id": "instance:9:us-east-1:i-01678cddce5b9a6d2:",
+                "resource_name": "AWS-RHEL-TNL01",
+                "resource_type": "instance",
+                "tags": {
+                    "Name": "AWS-RHEL-TNL01"
+                }
+            },
+            "create_time": "2023-07-27 10:38:55",
+            "detailed_monitoring": false,
+            "image_id": "ami-0bef94c5aadbbbabc",
+            "instance_id": "i-01678cddce5b9a6d2",
+            "instance_type": "t2.medium",
+            "key_name": [
+                "aws-gimage-key"
+            ],
+            "launch_time": "2023-07-27T10:38:55Z",
+            "network_resource_id": "privatenetwork:9:us-east-1:vpc-02b3bc7b:",
+            "platform": "linux",
+            "private_ip_address": "10.237.224.220",
+            "role_name": "aws-gissm-role",
+            "role_resource_id": "servicerole:9:AROAVTSGRFT2MDKA6OZZB:",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_transition_reason": "",
+            "subnet_resource_id": "privatesubnet:9:us-east-1:subnet-26ad7542:",
+            "tenancy": "default"
+        },
+        "resource_type": "instance"
+    },
+    {
+        "instance": {
+            "architecture": "x86_64",
+            "aws_instance_metadata_service_endpoint_config_status": "applied",
+            "aws_instance_metadata_service_endpoint_enabled": "enabled",
+            "aws_instance_metadata_service_hop_limit": 1,
+            "aws_instance_metadata_service_v2_required": false,
+            "common": {
+                "account": "Alkermes R&D Applications PROD Account",
+                "account_id": "327751404256",
+                "account_status": "DEFAULT",
+                "auto_id": 751,
+                "availability_zone": "us-east-1f",
+                "cloud": "AWS",
+                "creation_timestamp": "2023-07-27 13:57:22",
+                "discovered_timestamp": "2023-07-27 13:58:02",
+                "modified_timestamp": "2023-07-27 13:58:02",
+                "namespace_id": "arn:aws:ec2:us-east-1:327751404256:instance/i-092d202e85385e757",
+                "organization_service_id": 8,
+                "provider_id": "i-092d202e85385e757",
+                "region": "us-east-1",
+                "resource_id": "instance:8:us-east-1:i-092d202e85385e757:",
+                "resource_name": "aws-arda-ecs-base-image-update-2023",
+                "resource_type": "instance",
+                "tags": {
+                    "Description": "ARDA Base Image Update EC2",
+                    "Name": "aws-arda-ecs-base-image-update-2023",
+                    "deployed_by": "console",
+                    "it_owner": "ces-alkermes.us@alithya.com",
+                    "location": "aws_cloud",
+                    "stack": "prod"
+                }
+            },
+            "create_time": "2023-07-27 13:57:22",
+            "detailed_monitoring": false,
+            "image_id": "ami-0bc791a1a61d0d79e",
+            "instance_id": "i-092d202e85385e757",
+            "instance_type": "t2.micro",
+            "key_name": [
+                "aws-ecs-image-prod-key"
+            ],
+            "launch_time": "2023-07-27T13:57:22Z",
+            "network_resource_id": "privatenetwork:8:us-east-1:vpc-25ada25c:",
+            "platform": "linux",
+            "private_ip_address": "10.237.126.194",
+            "role_name": "ALKSRdlnxEC2RoleProd",
+            "role_resource_id": "servicerole:8:AROAUYT4BRLQMS4PAPFQP:",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_transition_reason": "",
+            "subnet_resource_id": "privatesubnet:8:us-east-1:subnet-992cc796:",
+            "tenancy": "default"
+        },
+        "resource_type": "instance"
+    }
+]
