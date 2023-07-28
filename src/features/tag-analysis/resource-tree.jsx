@@ -12,15 +12,15 @@ export const ResourceTree = ({
     onHandleResourceDetails
 }) => {
 
-    console.log('rendered ResourceTree:resources: ', resources);
+    // console.log('rendered ResourceTree:resources: ', resources);
 
     if(Object.keys(resources).length === 0) {
         return <div>NO RESOURCE SELECTED YET</div>
     }
 
     const parentName = Object.keys(resources)[0]
-    console.log('parentName: ', parentName)
-    console.log('instances: ', resources[parentName])
+    // console.log('parentName: ', parentName)
+    // console.log('instances: ', resources[parentName])
     const testTreeData = [
         {
             title: parentName,
