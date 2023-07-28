@@ -3,7 +3,7 @@ import { TagHeatmap } from "./tag-heatmap"
 import { ResourceTree } from "./resource-tree";
 import { ComponentSpinner } from "@components/spinners";
 import { formatTagData } from "@utils/data-formatting";
-import testJSONData from "@utils/test-data"
+// import testJSONData from "@utils/test-data"
 import alkTestData from '@utils/test-data';
 import { ResourceDetails } from "./resource-details";
 
@@ -11,7 +11,7 @@ export const TagAnalysisDashboard = () => {
 
     const [loading, setLoading] = useState(true);
     const [tagData, setTagData] = useState({});
-    const [selectedResources, setSelectedResources] = useState([])
+    const [selectedResources, setSelectedResources] = useState({})
     const [resourceDetails, setResourceDetails] = useState({})
     
     useEffect(() => {
@@ -20,13 +20,14 @@ export const TagAnalysisDashboard = () => {
         setLoading(false);
     }, [])
 
-    const handleSetSelectedResources = (evt) => {
-        console.log('handleSetSelectedResourced():evt: ', evt)
+    const handleSetSelectedResources = (resourceData) => {
+        console.log('handleSetSelectedResourced():evt: ', resourceData)
+        setSelectedResources(resourceData)
     }
 
-    const handleSetResourceDetails = (evt) => {
-        console.log('handleSetResourceDetails():evt: ', evt);
-        setResourceDetails({...evt})
+    const handleSetResourceDetails = (resourceData) => {
+        console.log('handleSetResourceDetails():resourceData: ', resourceData);
+        setResourceDetails({...resourceData})
     }
 
     
@@ -41,6 +42,7 @@ export const TagAnalysisDashboard = () => {
             <div className="col-span-2">
                 <TagHeatmap
                     data={tagData}
+                    onHandleSelectedResources={handleSetSelectedResources}
                 />
             </div>
             <div className="p-4 shadow-inner bg-slate-100">

@@ -10,7 +10,6 @@ export const ResourceDetails = ({ details }) => {
             <p>
                 Resource Details
             </p>
-            <p>{ResourceDetails}</p>
             <div className="
                 whitespace-pre-wrap 
                 text-sm

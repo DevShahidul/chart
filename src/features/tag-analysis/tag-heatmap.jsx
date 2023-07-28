@@ -6,7 +6,10 @@ import HeatmapModule from 'highcharts/modules/heatmap';
 import HighchartsReact from "highcharts-react-official";
 HeatmapModule(Highcharts);
 
-export const TagHeatmap = ({ data }) => {
+export const TagHeatmap = ({ 
+    data,
+    onHandleSelectedResources 
+}) => {
     const [loading, setLoading] = useState(true);
     const [heatmapData, setHeatmapData] = useState({});
 
@@ -16,11 +19,27 @@ export const TagHeatmap = ({ data }) => {
         setLoading(false)
     }, [data])
 
+    const handleHeatmapClick = (x, y) => {
+        const resource = heatmapData.xAxisLabels[x];
+        console.log('selected resource: ', resource)
+        const account = heatmapData.yAxisLabels[y];
+        console.log('selected account: ', account)
+        //loop through heatmap data and extract matching accounts/resources
+        const selectedResources = {
+            [account]: data[account].filter(
+                r => r.resourceType === resource
+            )
+            }
+        onHandleSelectedResources(selectedResources);
+        console.log('selectedResources: ', selectedResources);
+    }
+
     const options = {
         chart: {
             type: 'heatmap',
             marginTop: 40,
-            marginBottom: 80,
+            marginBottom: 40,
+            // paddingBottom: 40,
             plotBorderWidth: 1
         },
     
@@ -84,7 +103,18 @@ export const TagHeatmap = ({ data }) => {
             dataLabels: {
                 enabled: true,
                 color: '#000000'
+            },
+            //tshea
+            cursor: 'pointer',
+            point: {
+                events: {
+                    click: function () {
+                        // alert('Category: ' + this.x + ', value: ' + this.y);
+                        handleHeatmapClick(this.x, this.y);
+                    }
+                }
             }
+
         }],
     
         responsive: {
@@ -112,6 +142,7 @@ export const TagHeatmap = ({ data }) => {
     return (
         <div className="
             bg-blue-100
+            mb-4
         ">
             <HighchartsReact
                 highcharts={Highcharts}
@@ -121,7 +152,8 @@ export const TagHeatmap = ({ data }) => {
     )
 }
 TagHeatmap.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    onHandleSelectedResources: PropTypes.func
 }
 
 const generateHeatmapSeries = (tagData) => {

@@ -11,96 +11,121 @@ export const ResourceTree = ({
     onHandleSelectedResources,
     onHandleResourceDetails
 }) => {
-    const treeData = [
+
+    console.log('rendered ResourceTree:resources: ', resources);
+
+    if(Object.keys(resources).length === 0) {
+        return <div>NO RESOURCE SELECTED YET</div>
+    }
+
+    const parentName = Object.keys(resources)[0]
+    console.log('parentName: ', parentName)
+    console.log('instances: ', resources[parentName])
+    const testTreeData = [
         {
-            title: 'parent 1',
-            key: '0-0',
+            title: parentName,
+            key: parentName,
             icon: <CarryOutOutlined />,
-            children: [
-            {
-                title: 'parent 1-0',
-                key: '0-0-0',
-                icon: <CarryOutOutlined />,
-                children: [
-                {
-                    title: 'leaf',
-                    key: '0-0-0-0',
+            children: resources[parentName].map(r => {
+                return {
+                    title: r.resourceName,
+                    key: r.resourceName,
                     icon: <CarryOutOutlined />,
-                },
-                {
-                    title: (
-                    <>
-                        <div>multiple line title</div>
-                        <div>multiple line title</div>
-                    </>
-                    ),
-                    key: '0-0-0-1',
-                    icon: <CarryOutOutlined />,
-                },
-                {
-                    title: 'leaf',
-                    key: '0-0-0-2',
-                    icon: <CarryOutOutlined />,
-                },
-                ],
-            },
-            {
-                title: 'parent 1-1',
-                key: '0-0-1',
-                icon: <CarryOutOutlined />,
-                children: [
-                {
-                    title: 'leaf',
-                    key: '0-0-1-0',
-                    icon: <CarryOutOutlined />,
-                },
-                ],
-            },
-            {
-                title: 'parent 1-2',
-                key: '0-0-2',
-                icon: <CarryOutOutlined />,
-                children: [
-                {
-                    title: 'leaf',
-                    key: '0-0-2-0',
-                    icon: <CarryOutOutlined />,
-                },
-                {
-                    title: 'leaf',
-                    key: '0-0-2-1',
-                    icon: <CarryOutOutlined />,
-                    switcherIcon: <FormOutlined />,
-                },
-                ],
-            },
-            ],
-        },
-        {
-            title: 'parent 2',
-            key: '0-1',
-            icon: <CarryOutOutlined />,
-            children: [
-            {
-                title: 'parent 2-0',
-                key: '0-1-0',
-                icon: <CarryOutOutlined />,
-                children: [
-                {
-                    title: 'leaf',
-                    key: '0-1-0-0',
-                    icon: <CarryOutOutlined />,
-                },
-                {
-                    title: 'leaf',
-                    key: '0-1-0-1',
-                    icon: <CarryOutOutlined />,
-                },
-                ],
-            },
-            ],
-        },
-    ];
+                }
+            })
+        }
+    ]
+
+    // const treeData = [
+    //     {
+    //         title: 'parent 1',
+    //         key: '0-0',
+    //         icon: <CarryOutOutlined />,
+    //         children: [
+    //         {
+    //             title: 'parent 1-0',
+    //             key: '0-0-0',
+    //             icon: <CarryOutOutlined />,
+    //             children: [
+    //             {
+    //                 title: 'leaf',
+    //                 key: '0-0-0-0',
+    //                 icon: <CarryOutOutlined />,
+    //             },
+    //             {
+    //                 title: (
+    //                 <>
+    //                     <div>multiple line title</div>
+    //                     <div>multiple line title</div>
+    //                 </>
+    //                 ),
+    //                 key: '0-0-0-1',
+    //                 icon: <CarryOutOutlined />,
+    //             },
+    //             {
+    //                 title: 'leaf',
+    //                 key: '0-0-0-2',
+    //                 icon: <CarryOutOutlined />,
+    //             },
+    //             ],
+    //         },
+    //         {
+    //             title: 'parent 1-1',
+    //             key: '0-0-1',
+    //             icon: <CarryOutOutlined />,
+    //             children: [
+    //             {
+    //                 title: 'leaf',
+    //                 key: '0-0-1-0',
+    //                 icon: <CarryOutOutlined />,
+    //             },
+    //             ],
+    //         },
+    //         {
+    //             title: 'parent 1-2',
+    //             key: '0-0-2',
+    //             icon: <CarryOutOutlined />,
+    //             children: [
+    //             {
+    //                 title: 'leaf',
+    //                 key: '0-0-2-0',
+    //                 icon: <CarryOutOutlined />,
+    //             },
+    //             {
+    //                 title: 'leaf',
+    //                 key: '0-0-2-1',
+    //                 icon: <CarryOutOutlined />,
+    //                 switcherIcon: <FormOutlined />,
+    //             },
+    //             ],
+    //         },
+    //         ],
+    //     },
+    //     {
+    //         title: 'parent 2',
+    //         key: '0-1',
+    //         icon: <CarryOutOutlined />,
+    //         children: [
+    //         {
+    //             title: 'parent 2-0',
+    //             key: '0-1-0',
+    //             icon: <CarryOutOutlined />,
+    //             children: [
+    //             {
+    //                 title: 'leaf',
+    //                 key: '0-1-0-0',
+    //                 icon: <CarryOutOutlined />,
+    //             },
+    //             {
+    //                 title: 'leaf',
+    //                 key: '0-1-0-1',
+    //                 icon: <CarryOutOutlined />,
+    //             },
+    //             ],
+    //         },
+    //         ],
+    //     },
+    // ];
     
     console.log('resources: ', resources);
 
@@ -117,14 +142,15 @@ export const ResourceTree = ({
                 showIcon={false}
                 defaultExpandedKeys={['0-0-0']}
                 onSelect={onHandleResourceDetails}
-                treeData={treeData}
+                defaultExpandAll={true}
+                treeData={testTreeData}
             />
         </div>
     )
 }
 
 ResourceTree.propTypes = {
-    resources: PropTypes.array,
+    resources: PropTypes.object,
     onHandleSelectedResources: PropTypes.func,
     onHandleResourceDetails: PropTypes.func
 }
