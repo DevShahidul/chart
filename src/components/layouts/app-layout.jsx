@@ -24,14 +24,14 @@ export const AppLayout = () => {
     }
 
     return (
-        <div className="grow flex flex-col">
-            <div className="grow-0">
+        <div className="flex flex-col grow">
+            <div className="flex flex-col grow-0">
                 <Header />
             </div>
-            <div className="grow-0">
+            <div className="flex flex-col grow-0">
                 <NavBar />
             </div>
-            <div className="grow flex flex-col p-2">
+            <div className="flex flex-col grow p-2">
                 <Outlet />
             </div>
         </div>

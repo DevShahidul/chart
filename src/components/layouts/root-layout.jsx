@@ -9,6 +9,8 @@ export const RootLayout = () => {
 
     return (
         <div className="
+            flex
+            flex-col
             container 
             min-h-screen
             h-full
