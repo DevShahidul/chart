@@ -26,9 +26,9 @@ export const ResourceTree = ({
             title: parentName,
             key: parentName,
             icon: <CarryOutOutlined />,
-            children: resources[parentName].map(r => {
+            children: resources[parentName].map((r, i) => {
                 return {
-                    title: r.resourceName,
+                    title: `${r.resourceName} (${r.resourceType})`,
                     key: r.resourceName,
                     icon: <CarryOutOutlined />,
                 }
