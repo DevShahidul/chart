@@ -4,7 +4,7 @@ export const Header = () => {
             bg-blue-200
             font-thin
             text-2xl
-            py-4 px-2
+            p-4
         ">
             Alkermes Compliance Dashboard
         </div>

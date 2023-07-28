@@ -1,9 +1,9 @@
-import { HeatmapDashboard } from "@features/heatmap-dashboard"
+import { TagAnalysisDashboard } from "@features/tag-analysis"
 
 export const HomePage = () => {
     return (
         <div>
-            <HeatmapDashboard />
+            <TagAnalysisDashboard />
         </div>
     )
 }

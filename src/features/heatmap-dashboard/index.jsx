@@ -1,1 +1,0 @@
-export { HeatmapDashboard } from './heatmap-dashboard'
