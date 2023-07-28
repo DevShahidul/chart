@@ -140,9 +140,7 @@ export const ResourceTree = ({
 
     return (
         <div className=''>
-            <p 
-                onClick={onHandleSelectedResources}
-            >
+            <p>
                 Selected Resources
             </p>
             <Tree
