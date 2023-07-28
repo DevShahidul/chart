@@ -46,6 +46,7 @@ export const TagHeatmap = ({ data }) => {
     
         accessibility: {
             point: {
+                //NEED TO FIX THIS LATER
                 descriptionFormat: '{(add index 1)}. ' +
                     '{series.xAxis.categories.(x)} sales ' +
                     '{series.yAxis.categories.(y)}, {value}.'
@@ -68,9 +69,9 @@ export const TagHeatmap = ({ data }) => {
         },
     
         tooltip: {
-            format: '<b>{series.xAxis.categories.(point.x)}</b> sold<br>' +
-                '<b>{point.value}</b> items on <br>' +
-                '<b>{series.yAxis.categories.(point.y)}</b>'
+            format: '<b>{series.yAxis.categories.(point.y)}</b> missing<br>' +
+                '<b>{point.value}</b> tags on <br>' +
+                '<b>{series.xAxis.categories.(point.x)}</b> resources.'
         },
     
         series: [{
