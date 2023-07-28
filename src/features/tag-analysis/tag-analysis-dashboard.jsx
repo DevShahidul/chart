@@ -1,27 +1,36 @@
-import { HeatmapChart } from "./heatmap-chart"
+import { TagHeatmap } from "./tag-heatmap"
+import { formatTagData } from "@utils/data-formatting";
 import testJSONData from "@utils/test-data"
-
-import testChartData from '@utils/chart-data';
 import alkTestData from '@utils/test-data';
-import { formatTagData } from "@utils/dataFormatter";
 
 export const TagAnalysisDashboard = () => {
 
     const data = formatTagData(alkTestData);
-
+    
     return (
         <div className="grid grid-cols-2">
             <div className="col-span-2">
-                <HeatmapChart 
-                    data={alkTestData}
+                <TagHeatmap
+                    data={data}
                 />
             </div>
             <div>
-                LEFT DETAILS COL
+                <p>Formatted Tag Data</p>
+                <div className="
+                    whitespace-pre-wrap 
+                    text-sm
+                ">
+                    {JSON.stringify(data, null, 3)}
+                </div>
             </div>
-            <div className="">
+            <div>
                 <p>TEST DATA:</p>
-                <div className="whitespace-pre-wrap text-sm">{JSON.stringify(testJSONData, null, 3)}</div>
+                <div className="
+                    whitespace-pre-wrap 
+                    text-sm
+                ">
+                    {JSON.stringify(testJSONData, null, 3)}
+                </div>
             </div>
         </div>
     )

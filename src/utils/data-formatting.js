@@ -1,4 +1,5 @@
 import requiredTags from './required-tags';
+
 export const formatTagData = (jsonData) => {
     // console.log('jsonData: ', jsonData)
     let data; 
@@ -9,7 +10,7 @@ export const formatTagData = (jsonData) => {
     try {
         data = JSON.parse(JSON.stringify(jsonData));
     } catch (e) {
-        console.error("ERR:formatTagData: ", e);
+        console.error("Error parsing JSON data: ", e);
     }
 
     // console.log('requiredTags: ', requiredTags);
@@ -36,7 +37,7 @@ export const formatTagData = (jsonData) => {
         const accountId = resource.account_id
         const resourceId = resource.resource_id
         const resourceName = resource.resource_name
-        // const resourceType = resource.resource_type
+        const resourceType = resource.resource_type
         const tagNames = Object.keys(resource.tags)
 
         // console.log('tagNames: ', tagNames);
@@ -48,10 +49,13 @@ export const formatTagData = (jsonData) => {
             accountId: accountId,
             resourceId: resourceId,
             resourceName: resourceName, 
+            resourceType: resourceType,
             currentTags: tagNames,
             missingTags: missingTags,
             numMissingTags: missingTags.length,
         }
+
+        // console.log('newTagData: ', newTagData);
 
         if(tagData[accountName]) {
             tagData = {

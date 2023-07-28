@@ -2,13 +2,16 @@ import PropTypes from "prop-types";
 import Highcharts from 'highcharts';
 import HeatmapModule from 'highcharts/modules/heatmap';
 import HighchartsReact from "highcharts-react-official";
-import { formatTagData } from "@utils/dataFormatter";
-import requiredTags from '@utils/required-tags';
 HeatmapModule(Highcharts);
 
-export const HeatmapChart = ({ data }) => {
-    const chartData = formatTagData(data);
-    const tagData = generateHeatmapSeries(chartData);
+export const TagHeatmap = ({ data }) => {
+    // const chartData = formatTagData(data);
+    const { xAxisLabels, yAxisLabels, heatMapSeries} = generateHeatmapSeries(data);
+
+    console.log('xAxisLabels: ', xAxisLabels)
+    console.log('yAxisLabels: ', yAxisLabels)
+    console.log('heatMapSeries: ', heatMapSeries)
+    
 
     const options = {
         chart: {
@@ -27,13 +30,15 @@ export const HeatmapChart = ({ data }) => {
         },
     
         xAxis: {
-            categories: Object.keys(chartData)
+            categories: xAxisLabels
+            // categories: Object.keys(data)
             // categories: ['Alexander', 'Marie', 'Maximilian', 'Sophia', 'Lukas',
             //     'Maria', 'Leon', 'Anna', 'Tim', 'Laura']
         },
     
         yAxis: {
-            categories: requiredTags,
+            categories: yAxisLabels,
+            // categories: requiredTags,
             // categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
             title: null,
             reversed: true
@@ -71,7 +76,7 @@ export const HeatmapChart = ({ data }) => {
         series: [{
             name: 'Sales per employee',
             borderWidth: 1,
-            data: tagData,
+            data: heatMapSeries,
             // data: [[0, 0, 10], [0, 1, 19], [0, 2, 8], [0, 3, 24], [0, 4, 67],
             //     [1, 0, 92], [1, 1, 58], [1, 2, 78], [1, 3, 117], [1, 4, 48],
             //     [2, 0, 35], [2, 1, 15], [2, 2, 123], [2, 3, 64], [2, 4, 52],
@@ -114,39 +119,55 @@ export const HeatmapChart = ({ data }) => {
         </div>
     )
 }
-HeatmapChart.propTypes = {
-    data: PropTypes.array
+TagHeatmap.propTypes = {
+    data: PropTypes.object
 }
 
-const generateHeatmapSeries = (data) => {
+const generateHeatmapSeries = (tagData) => {
     let heatMapData = [];
-    const resources = Object.keys(data);
-    console.log('resources: ', resources);
-    // console.log('data: ', data);
-    // data.map(d => console.log('d: ', d));
-    resources.map((resource, i0) => {
-        console.log(`${resource}`, data[resource]);
-        requiredTags.map((tag, i1) => {
+    
+    const resources = Object.keys(tagData);
+    // console.log('resources: ', resources);
+
+    //need to iterate through tagData and pull out unique instance types
+    const resourceTypes = resources
+        //first loop thru each resource and extract the resource type
+        //this results in an array or arrays
+        .map(resource => tagData[resource]
+            .map(r => r.resourceType)
+        )
+        //to deal with the array of arrays, we reduce the multiple
+        //arrays into a single array with each instance type found
+        .reduce(
+            (prev, current) => [...prev, ...current]
+        )
+        //filter out duplicate instance types
+        .filter(
+            (type, index, currentVal) => currentVal.indexOf(type) === index
+        )
+
+    //already have Alkermes resource names in array
+    const accountNames = resources;
+
+    accountNames.map((account, i0) => {
+        resourceTypes.map((type, i1) => {
             const initialCount = 0;
-            const countMissingTags = data[resource].reduce(
-                (accumulator, currentValue) => {
-                    // console.log('accumulator: ', accumulator);
-                    // console.log('currentValue: ', currentValue);
-                    // console.log('index: ', index);
-                    // console.log('array: ', array);
-                    return currentValue.missingTags.includes(tag) 
-                        ? accumulator+1 
-                        : accumulator;
+            const missingTagCount = tagData[account].reduce(
+                (accumulator, currentResource) => {
+                    return currentResource.resourceType === type
+                        ? accumulator + currentResource.numMissingTags
+                        : accumulator
                 }, initialCount
             );
-            // console.log('missingTags: ', countMissingTags, ' for ', data[resource])
-            // console.log('i0, i1, count: ', i0, i1, countMissingTags);
-            heatMapData.push([i0, i1, countMissingTags])
-            // data[resource].map((d, i1) => {
-            //     console.log(`{r: ${resource}, tag: ${tag}, numMissing: ${d.missingTags.length}}`)
-            // })
+            heatMapData.push([i1, i0, missingTagCount])
         })
     })
-    console.log('heatMapData: ', heatMapData);
-    return heatMapData;
+
+    // console.log('heatMapData: ', heatMapData);
+    return {
+        xAxisLabels: resourceTypes,
+        yAxisLabels: accountNames,
+        heatMapSeries: heatMapData
+    };
 }
+
