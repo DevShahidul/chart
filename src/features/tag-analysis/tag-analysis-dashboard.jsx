@@ -20,9 +20,14 @@ export const TagAnalysisDashboard = () => {
         setLoading(false);
     }, [])
 
-    const handleSetSelectedResources = (resourceData) => {
-        console.log('handleSetSelectedResourced():evt: ', resourceData)
-        setSelectedResources(resourceData)
+    const handleSetSelectedResources = (account, resourceType) => {
+        const selectedResources = {
+            [account]: tagData[account].filter(
+                r => r.resourceType === resourceType
+            )
+        }
+        console.log('handleSetSelectedResourced():selectedResources: ', selectedResources)
+        setSelectedResources(selectedResources)
     }
 
     const handleSetResourceDetails = (resourceData) => {

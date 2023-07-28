@@ -21,17 +21,12 @@ export const TagHeatmap = ({
 
     const handleHeatmapClick = (x, y) => {
         const resource = heatmapData.xAxisLabels[x];
-        console.log('selected resource: ', resource)
+        console.log('selected resource: ', resource);
         const account = heatmapData.yAxisLabels[y];
-        console.log('selected account: ', account)
+        console.log('selected account: ', account);
         //loop through heatmap data and extract matching accounts/resources
-        const selectedResources = {
-            [account]: data[account].filter(
-                r => r.resourceType === resource
-            )
-            }
-        onHandleSelectedResources(selectedResources);
-        console.log('selectedResources: ', selectedResources);
+        onHandleSelectedResources(account, resource);
+        // console.log('selectedResources: ', selectedResources);
     }
 
     const options = {

@@ -19,6 +19,15 @@ export const ResourceTree = ({
     }
 
     const parentName = Object.keys(resources)[0]
+
+    if(resources[parentName].length === 0) {
+        return (
+            <>
+                <div>{parentName}</div>
+                <div className='font-light'>(No Missing Tags)</div>
+            </>
+        )
+    }
     // console.log('parentName: ', parentName)
     // console.log('instances: ', resources[parentName])
     const testTreeData = [
@@ -29,7 +38,7 @@ export const ResourceTree = ({
             children: resources[parentName].map((r, i) => {
                 return {
                     title: `${r.resourceName} (${r.resourceType})`,
-                    key: r.resourceName,
+                    key: r.resourceId,
                     icon: <CarryOutOutlined />,
                 }
             })
@@ -140,7 +149,7 @@ export const ResourceTree = ({
                 className='bg-inherit'
                 showLine={true}
                 showIcon={false}
-                defaultExpandedKeys={['0-0-0']}
+                // defaultExpandedKeys={['0-0-0']}
                 onSelect={onHandleResourceDetails}
                 defaultExpandAll={true}
                 treeData={testTreeData}
