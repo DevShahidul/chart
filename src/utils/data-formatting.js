@@ -29,20 +29,20 @@ export const formatTagData = (jsonData) => {
     // console.log('resources: ', resources);
 
     data.map(d => {
-        console.log('d: ', d);
+        // console.log('d: ', d);
         // const [first] = Object.keys(d);
         // console.log('first: ', first);
         const resourceType = d.resource_type
-        console.log('resourceType: ', resourceType);
+        // console.log('resourceType: ', resourceType);
         const resource = d[resourceType].common
-        console.log('resource: ', resource);
+        // console.log('resource: ', resource);
         // const resource = d[first].common
         const accountName = resource.account
         const accountId = resource.account_id
         const resourceId = resource.resource_id
         const resourceName = resource.resource_name
         // const resourceType = resource.resource_type
-        console.log('resource.tags: ', resource.tags);
+        // console.log('resource.tags: ', resource.tags);
         const tagNames = resource.tags ? Object.keys(resource.tags) : []
 
         // console.log('tagNames: ', tagNames);
