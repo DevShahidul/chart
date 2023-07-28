@@ -8,9 +8,9 @@ export const TagHeatmap = ({ data }) => {
     // const chartData = formatTagData(data);
     const { xAxisLabels, yAxisLabels, heatMapSeries} = generateHeatmapSeries(data);
 
-    console.log('xAxisLabels: ', xAxisLabels)
-    console.log('yAxisLabels: ', yAxisLabels)
-    console.log('heatMapSeries: ', heatMapSeries)
+    // console.log('xAxisLabels: ', xAxisLabels)
+    // console.log('yAxisLabels: ', yAxisLabels)
+    // console.log('heatMapSeries: ', heatMapSeries)
     
 
     const options = {
