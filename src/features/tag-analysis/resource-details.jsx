@@ -11,6 +11,7 @@ export const ResourceDetails = ({ details }) => {
             <div className="
                 whitespace-pre-wrap 
                 text-sm
+                
             ">
                 {JSON.stringify(details, null, 3)}
             </div>

@@ -48,7 +48,7 @@ export const ResourceTree = ({
         <div>
             <p className='font-semibold'>Selected Resources</p>
             <Tree
-                className='bg-inherit'
+                className='bg-inherit text-inherit'
                 showLine={true}
                 showIcon={false}
                 onSelect={(resourceId) => onHandleResourceDetails(parentName, resourceId[0])}

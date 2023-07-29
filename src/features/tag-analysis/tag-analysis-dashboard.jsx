@@ -62,7 +62,14 @@ export const TagAnalysisDashboard = () => {
                     onHandleSelectedResources={handleSetSelectedResources}
                 />
             </div>
-            <div className="p-4 shadow-inner bg-slate-100">
+            <div className="
+                p-4 
+                shadow-inner 
+                bg-slate-100
+                text-slate-800
+                dark:bg-slate-800
+                dark:text-slate-200
+            ">
                 <ResourceTree 
                     resources={selectedResources}
                     onHandleResourceDetails={handleSetResourceDetails}
@@ -75,7 +82,14 @@ export const TagAnalysisDashboard = () => {
                     {JSON.stringify(tagData, null, 3)}
                 </div> */}
             </div>
-            <div className="p-4 shadow-inner bg-slate-100">
+            <div className="
+                p-4 
+                shadow-inner 
+                bg-slate-100
+                text-slate-800
+                dark:bg-slate-800
+                dark:text-slate-200
+            ">
                 <ResourceDetails 
                     details={resourceDetails}
                 />

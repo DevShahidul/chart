@@ -41,6 +41,7 @@ const NavButton = ({ text, path }) => {
                 dark:hover:text-slate-100
                 dark:hover:bg-slate-600
                 p-2
+                rounded-lg
             ">
                 {text}
             </button>
