@@ -15,6 +15,8 @@ export const NavBar = () => {
     return (
         <nav className="
             bg-slate-200
+            dark:bg-slate-700
+            dark:text-slate-200
             font-thin
             p-2
             space-x-2
@@ -36,6 +38,8 @@ const NavButton = ({ text, path }) => {
             <button className="
                 hover:text-slate-800
                 hover:bg-slate-100
+                dark:hover:text-slate-100
+                dark:hover:bg-slate-600
                 p-2
             ">
                 {text}
