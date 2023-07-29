@@ -3,12 +3,10 @@ import { TagHeatmap } from "./tag-heatmap"
 import { ResourceTree } from "./resource-tree";
 import { ComponentSpinner } from "@components/spinners";
 import { formatTagData } from "@utils/data-formatting";
-// import testJSONData from "@utils/test-data"
-import alkTestData from '@utils/test-data';
 import { ResourceDetails } from "./resource-details";
+import alkTestData from '@utils/test-data';
 
 export const TagAnalysisDashboard = () => {
-
     const [loading, setLoading] = useState(true);
     const [tagData, setTagData] = useState({});
     const [selectedResources, setSelectedResources] = useState({})
@@ -26,13 +24,27 @@ export const TagAnalysisDashboard = () => {
                 r => r.resourceType === resourceType
             )
         }
-        console.log('handleSetSelectedResourced():selectedResources: ', selectedResources)
         setSelectedResources(selectedResources)
+        //reset the resource details data since tree changed
+        setResourceDetails({})
     }
 
-    const handleSetResourceDetails = (resourceData) => {
-        console.log('handleSetResourceDetails():resourceData: ', resourceData);
-        setResourceDetails({...resourceData})
+    const handleSetResourceDetails = (accountName, resourceId) => {
+        const details = getResourceDetails(accountName, resourceId)
+        setResourceDetails(details)
+    }
+
+    const getResourceDetails = (accountName, resourceId) => {
+        if(accountName === resourceId) {
+            return tagData[accountName]            
+        }
+        const details = tagData[accountName].find(r => r.resourceId === resourceId)
+        if(!details) {
+            return {
+                error: `Resource ID (${resourceId}) not found!`
+            }
+        }
+        return details;
     }
 
     
@@ -53,7 +65,6 @@ export const TagAnalysisDashboard = () => {
             <div className="p-4 shadow-inner bg-slate-100">
                 <ResourceTree 
                     resources={selectedResources}
-                    onHandleSelectedResources={handleSetSelectedResources}
                     onHandleResourceDetails={handleSetResourceDetails}
                 />
                 {/* <p>Formatted Tag Data</p>

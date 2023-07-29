@@ -1,7 +1,7 @@
 export const FullPageSpinner = () => {
     return (
         <div className="flex flex-col grow items-center justify-center">
-            <span className="p-4 font-thin text-2xl p-4">Alkermes Compliance Dashboard</span>
+            <span className="font-thin text-2xl p-4">Alkermes Compliance Dashboard</span>
             <div className="
                     h-12 
                     w-12 

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import { Button } from 'antd';
 
 export const ResourceDetails = ({ details }) => {
-    
-    console.log('resource details: ', details);
+    if(details && (details.length === 0 || Object.keys(details).length === 0)) {
+        return <div>Select a resource to view details.</div>
+    }
 
     return (
         <div className='flex flex-col h-full bg-slate-100'>
@@ -16,16 +16,12 @@ export const ResourceDetails = ({ details }) => {
             ">
                 {JSON.stringify(details, null, 3)}
             </div>
-            {/* <Button 
-                className='bg-[#1677ff]'
-                type="primary"
-            >
-                TEST ANTD BUTTON
-            </Button> */}
         </div>
     )
 }
-
 ResourceDetails.propTypes = {
-    details: PropTypes.object
+    details: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.array
+    ])
 }

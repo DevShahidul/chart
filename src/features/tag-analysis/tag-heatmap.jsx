@@ -21,12 +21,9 @@ export const TagHeatmap = ({
 
     const handleHeatmapClick = (x, y) => {
         const resource = heatmapData.xAxisLabels[x];
-        console.log('selected resource: ', resource);
         const account = heatmapData.yAxisLabels[y];
-        console.log('selected account: ', account);
         //loop through heatmap data and extract matching accounts/resources
         onHandleSelectedResources(account, resource);
-        // console.log('selectedResources: ', selectedResources);
     }
 
     const options = {
@@ -34,7 +31,6 @@ export const TagHeatmap = ({
             type: 'heatmap',
             marginTop: 40,
             marginBottom: 40,
-            // paddingBottom: 40,
             plotBorderWidth: 1
         },
     
@@ -155,7 +151,6 @@ const generateHeatmapSeries = (tagData) => {
     let heatmapData = [];
     
     const resources = Object.keys(tagData);
-    // console.log('resources: ', resources);
 
     //need to iterate through tagData and pull out unique instance types
     const resourceTypes = resources
@@ -191,7 +186,6 @@ const generateHeatmapSeries = (tagData) => {
         })
     })
 
-    // console.log('heatMapData: ', heatMapData);
     return {
         xAxisLabels: resourceTypes,
         yAxisLabels: accountNames,
