@@ -45,10 +45,8 @@ export const ResourceTree = ({
     ]
 
     return (
-        <div className=''>
-            <p>
-                Selected Resources
-            </p>
+        <div>
+            <p className='font-semibold'>Selected Resources</p>
             <Tree
                 className='bg-inherit'
                 showLine={true}

@@ -6,10 +6,8 @@ export const ResourceDetails = ({ details }) => {
     }
 
     return (
-        <div className='flex flex-col h-full bg-slate-100'>
-            <p>
-                Resource Details
-            </p>
+        <div>
+            <p className='font-semibold'>Resource Details</p>
             <div className="
                 whitespace-pre-wrap 
                 text-sm
