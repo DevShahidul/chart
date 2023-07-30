@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
+import { DarkModeSwitch } from "@theme/dark-switch";
 
 export const NavBar = () => {
     const routes = [
@@ -20,7 +21,11 @@ export const NavBar = () => {
             font-thin
             p-2
             space-x-2
+            grid
+            grid-cols-2
+            items-center
         ">
+            <div>
             {routes.map((route => (
                 <NavButton 
                     key={route.path}
@@ -28,6 +33,11 @@ export const NavBar = () => {
                     path={route.path}
                 />
             )))}
+            </div>
+            <div className="text-right">
+                <DarkModeSwitch />
+            </div>
+            
         </nav>
     )
 }

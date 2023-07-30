@@ -149,7 +149,7 @@ TagHeatmap.propTypes = {
   onHandleSelectedResources: PropTypes.func,
 };
 
-const generateHeatmapSeries = (tagData) => {
+const generateHeatmapSeries = (tagData, ) => {
   let heatmapData = [];
 
   const resources = Object.keys(tagData);
