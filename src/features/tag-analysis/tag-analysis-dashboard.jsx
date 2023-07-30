@@ -55,7 +55,7 @@ export const TagAnalysisDashboard = () => {
     }
 
     return (
-        <div className="grid grid-cols-2 grid-rows-2 gap-x-2 grow content-start">
+        <div className="grid grid-cols-2 gap-x-2 grow content-start">
             <div className="col-span-2">
                 <TagHeatmap
                     data={tagData}
