@@ -151,8 +151,18 @@ TagHeatmap.propTypes = {
 
 const generateHeatmapSeries = (tagData, ) => {
   let heatmapData = [];
+  let totalMissingTags = [];
+
+  console.log('tagData: ', tagData);
 
   const resources = Object.keys(tagData);
+
+  const numMissingTags = resources.map((resource) => {
+    const missingTags = tagData[resource].numMissingTags
+    return totalMissingTags+=missingTags;
+  })
+
+  console.log('numMissingTags: ', numMissingTags)
 
   //need to iterate through tagData and pull out unique instance types
   const resourceTypes = resources
