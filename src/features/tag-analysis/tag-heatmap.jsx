@@ -31,7 +31,9 @@ export const TagHeatmap = ({ data, onHandleSelectedResources }) => {
       marginBottom: 40,
       plotBorderWidth: 1,
       borderColor: "#000000", // Black border for the overall chart
-      height: "33%", // Set height to 100%
+      // height: "33%", // Set height to 100%
+      // height: "100%"
+      height: (9/16 * 100) + "%"
     },
 
     title: {
@@ -137,12 +139,7 @@ export const TagHeatmap = ({ data, onHandleSelectedResources }) => {
   }
 
   return (
-    <div
-      className="
-            bg-blue-100
-            mb-4
-        "
-    >
+    <div className="mb-4">
       <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
   );
