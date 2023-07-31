@@ -42,11 +42,11 @@ export const TagAnalysisDashboard = () => {
             return tagData[accountName]            
         }
         const details = tagData[accountName].find(r => r.resourceId === resourceId)
-        if(!details) {
-            return {
-                error: `Resource ID (${resourceId}) not found!`
-            }
-        }
+        // if(!details) {
+        //     return {
+        //         error: `Resource ID (${resourceId}) not found!`
+        //     }
+        // }
         return details;
     }
 

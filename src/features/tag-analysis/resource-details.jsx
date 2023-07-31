@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const ResourceDetails = ({ details }) => {
-    if(details && (details.length === 0 || Object.keys(details).length === 0)) {
+    if(!details || (details.length === 0 || Object.keys(details).length === 0)) {
         return <div>Select a resource to view details.</div>
     }
 
