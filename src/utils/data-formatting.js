@@ -30,28 +30,16 @@ export const formatTagData = (jsonData) => {
     // console.log('resources: ', resources);
 
     data.map(d => {
-        // console.log('d: ', d);
-        // const [first] = Object.keys(d);
-        // console.log('first: ', first);
         const resourceType = d.resource_type
-        // console.log('resourceType: ', resourceType);
         const requiredTagsForResource = required_tags2[resourceType];
         const resource = d[resourceType].common
-        // console.log('resource: ', resource);
-        // const resource = d[first].common
         const accountName = resource.account
         const accountId = resource.account_id
         const resourceId = resource.resource_id
         const resourceName = resource.resource_name
-        // const resourceType = resource.resource_type
-        // console.log('resource.tags: ', resource.tags);
         const tagNames = resource.tags ? Object.keys(resource.tags) : []
-
-        // console.log('tagNames: ', tagNames);
-        // const missingTags = requiredTags.filter(tag => !tagNames.includes(tag))
         const missingTags = requiredTagsForResource.filter(tag => !tagNames.includes(tag))
 
-        // console.log('missingTags for ', resourceType, ': ', missingTags);
         const newTagData = {
             accountName: accountName,
             accountId: accountId,
