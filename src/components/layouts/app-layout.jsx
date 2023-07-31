@@ -31,7 +31,7 @@ export const AppLayout = () => {
             <div className="flex flex-col grow-0">
                 <NavBar />
             </div>
-            <div className="flex flex-col grow p-2">
+            <div className="flex flex-col grow">
                 <Outlet />
             </div>
         </div>

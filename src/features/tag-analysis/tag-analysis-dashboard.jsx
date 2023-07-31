@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { TagDashboardOptions } from "./tag-dashboard-options";
 import { TagHeatmap } from "./tag-heatmap"
 import { ResourceTree } from "./resource-tree";
 import { ComponentSpinner } from "@components/spinners";
@@ -11,12 +12,17 @@ export const TagAnalysisDashboard = () => {
     const [tagData, setTagData] = useState({});
     const [selectedResources, setSelectedResources] = useState({})
     const [resourceDetails, setResourceDetails] = useState({})
+    const [showPercentages, setShowPercentages] = useState(false)
     
     useEffect(() => {
         const data = formatTagData(alkTestData);
         setTagData(data);
         setLoading(false);
     }, [])
+
+    const togglePercentages = () => {
+        setShowPercentages(enabled => !enabled);
+    }
 
     const handleSetSelectedResources = (account, resourceType) => {
         const selectedResources = {
@@ -55,11 +61,17 @@ export const TagAnalysisDashboard = () => {
     }
 
     return (
+        <>
+        <TagDashboardOptions 
+            showPercentages={showPercentages}
+            togglePercentages={togglePercentages}
+        />
         <div className="grid grid-cols-2 gap-x-2 grow content-start">
             <div className="col-span-2">
                 <TagHeatmap
                     data={tagData}
                     onHandleSelectedResources={handleSetSelectedResources}
+                    showPercentages={showPercentages}
                 />
             </div>
             <div className="
@@ -102,5 +114,6 @@ export const TagAnalysisDashboard = () => {
                 </div> */}
             </div>
         </div>
+        </>
     )
 }

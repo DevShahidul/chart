@@ -6,16 +6,20 @@ import HeatmapModule from "highcharts/modules/heatmap";
 import HighchartsReact from "highcharts-react-official";
 HeatmapModule(Highcharts);
 
-export const TagHeatmap = ({ data, onHandleSelectedResources }) => {
+export const TagHeatmap = ({ 
+  data, 
+  onHandleSelectedResources, 
+  showPercentages 
+}) => {
   const [loading, setLoading] = useState(true);
   const [heatmapData, setHeatmapData] = useState({});
-
+  
   useEffect(() => {
     const { xAxisLabels, yAxisLabels, heatmapSeries } =
-      generateHeatmapSeries(data);
+      generateHeatmapSeries(data, showPercentages);
     setHeatmapData({ xAxisLabels, yAxisLabels, heatmapSeries });
     setLoading(false);
-  }, [data]);
+  }, [data, showPercentages]);
 
   const handleHeatmapClick = (x, y) => {
     const resource = heatmapData.xAxisLabels[x];
@@ -102,6 +106,11 @@ export const TagHeatmap = ({ data, onHandleSelectedResources }) => {
           style: {
             fontSize: "14px", // Adjust the font size as needed
           },
+          formatter() {
+            return showPercentages 
+              ? this.point.value + "%"
+              : this.point.value
+          }
         },
         //tshea
         cursor: "pointer",
@@ -144,25 +153,29 @@ export const TagHeatmap = ({ data, onHandleSelectedResources }) => {
     </div>
   );
 };
+TagHeatmap.defaultProps = {
+  showPercentages: true
+}
 TagHeatmap.propTypes = {
   data: PropTypes.object,
   onHandleSelectedResources: PropTypes.func,
+  showPercentages: PropTypes.bool
 };
 
-const generateHeatmapSeries = (tagData, ) => {
+const generateHeatmapSeries = (tagData, showPercentages) => {
   let heatmapData = [];
-  let totalMissingTags = [];
 
-  console.log('tagData: ', tagData);
+  // console.log('tagData: ', tagData);
 
   const resources = Object.keys(tagData);
 
-  const numMissingTags = resources.map((resource) => {
-    const missingTags = tagData[resource].numMissingTags
-    return totalMissingTags+=missingTags;
-  })
-
-  console.log('numMissingTags: ', numMissingTags)
+  const totalMissingTags = resources
+    .reduce((accumulator, currentAccount) => {
+      const missingTags = tagData[currentAccount]
+        .reduce((acc, currentResource) => 
+          (acc + currentResource.numMissingTags), 0)
+      return accumulator+missingTags
+    }, 0)
 
   //need to iterate through tagData and pull out unique instance types
   const resourceTypes = resources
@@ -189,7 +202,12 @@ const generateHeatmapSeries = (tagData, ) => {
         },
         initialCount
       );
-      heatmapData.push([i1, i0, missingTagCount]);
+
+      const dataValue = showPercentages 
+        ? Number(parseFloat((missingTagCount/totalMissingTags)*100).toFixed(2))
+        : missingTagCount
+      // heatmapData.push([i1, i0, missingTagCount]);
+      heatmapData.push([i1, i0, dataValue]);
     });
   });
 
