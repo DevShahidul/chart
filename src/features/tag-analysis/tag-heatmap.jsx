@@ -90,7 +90,7 @@ export const TagHeatmap = ({
     tooltip: {
       format:
         "<b>{series.yAxis.categories.(point.y)}</b> missing<br>" +
-        "<b>{point.value}</b> tags on <br>" +
+        `<b>{point.value}${showPercentages ? "%" : ""}</b> tags on <br>` +
         "<b>{series.xAxis.categories.(point.x)}</b> resources.",
     },
 
