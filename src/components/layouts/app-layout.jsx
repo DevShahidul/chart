@@ -9,8 +9,6 @@ export const AppLayout = () => {
     const location = useLocation();
     //add auth hooks here if needed
     
-    console.log('pathname: ', location.pathname);
-
     useEffect(() => {
         const timer = setTimeout(() => {
             setLayoutLoading(false);
