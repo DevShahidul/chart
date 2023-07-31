@@ -9,7 +9,7 @@ HeatmapModule(Highcharts);
 export const TagHeatmap = ({ 
   data, 
   onHandleSelectedResources, 
-  showPercentages 
+  showPercentages
 }) => {
   const [loading, setLoading] = useState(true);
   const [heatmapData, setHeatmapData] = useState({});
@@ -149,13 +149,18 @@ export const TagHeatmap = ({
 
   return (
     <div className="mb-4">
-      <HighchartsReact highcharts={Highcharts} options={options} />
+      <HighchartsReact 
+        highcharts={Highcharts} 
+        options={options} 
+      />
     </div>
   );
 };
+
 TagHeatmap.defaultProps = {
-  showPercentages: true
+  showPercentages: false
 }
+
 TagHeatmap.propTypes = {
   data: PropTypes.object,
   onHandleSelectedResources: PropTypes.func,
@@ -164,8 +169,6 @@ TagHeatmap.propTypes = {
 
 const generateHeatmapSeries = (tagData, showPercentages) => {
   let heatmapData = [];
-
-  // console.log('tagData: ', tagData);
 
   const resources = Object.keys(tagData);
 

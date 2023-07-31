@@ -2,13 +2,14 @@ import { FullPageSpinner } from "@components/spinners";
 import { NavBar } from "@components/nav";
 import { Header } from "@components/header";
 import { useEffect, useState } from "react";
-import { 
-    Outlet 
-} from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 export const AppLayout = () => {
     const [layoutLoading, setLayoutLoading] = useState(true);
+    const location = useLocation();
     //add auth hooks here if needed
+    
+    console.log('pathname: ', location.pathname);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -29,7 +30,9 @@ export const AppLayout = () => {
                 <Header />
             </div>
             <div className="flex flex-col grow-0">
-                <NavBar />
+                <NavBar 
+                    activeRoute={location.pathname}
+                />
             </div>
             <div className="flex flex-col grow">
                 <Outlet />

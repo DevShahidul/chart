@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
 import { DarkModeSwitch } from "@theme/dark-switch";
 
-export const NavBar = () => {
+export const NavBar = ({ activeRoute }) => {
     const routes = [
         {
-            text: 'Home',
+            text: 'Tag Analysis',
             path: '/'
         },
-        {
-            text: 'Test',
-            path: '/test'
-        },
+        // {
+        //     text: 'Test',
+        //     path: '/test'
+        // },
     ]
     return (
         <nav className="
@@ -31,6 +31,7 @@ export const NavBar = () => {
                     key={route.path}
                     text={route.text}
                     path={route.path}
+                    active={activeRoute === route.path}
                 />
             )))}
             </div>
@@ -41,18 +42,22 @@ export const NavBar = () => {
         </nav>
     )
 }
+NavBar.propTypes = {
+    activeRoute: PropTypes.string.isRequired
+}
 
-const NavButton = ({ text, path }) => {
+const NavButton = ({ text, path, active }) => {
     return (
         <Link to={path}>
-            <button className="
+            <button className={`
                 hover:text-slate-800
                 hover:bg-slate-100
                 dark:hover:text-slate-100
                 dark:hover:bg-slate-600
                 p-2
                 rounded-lg
-            ">
+                ${active && "bg-slate-300 dark:bg-slate-500"}
+            `}>
                 {text}
             </button>
         </Link>        
@@ -60,5 +65,6 @@ const NavButton = ({ text, path }) => {
 }
 NavButton.propTypes = {
     text: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired
+    path: PropTypes.string.isRequired,
+    active: PropTypes.bool
 }

@@ -1,28 +1,25 @@
 import { useEffect, useState } from "react";
-import { TagDashboardOptions } from "./tag-dashboard-options";
+import { TagAnalysisOptions } from "./tag-analysis-options";
 import { TagHeatmap } from "./tag-heatmap"
 import { ResourceTree } from "./resource-tree";
 import { ComponentSpinner } from "@components/spinners";
 import { formatTagData } from "@utils/data-formatting";
 import { ResourceDetails } from "./resource-details";
 import alkTestData from '@utils/test-data';
+import { useConfigOptions } from "@hooks";
 
 export const TagAnalysisDashboard = () => {
     const [loading, setLoading] = useState(true);
     const [tagData, setTagData] = useState({});
     const [selectedResources, setSelectedResources] = useState({})
     const [resourceDetails, setResourceDetails] = useState({})
-    const [showPercentages, setShowPercentages] = useState(false)
+    const [options, updateOptions] = useConfigOptions();
     
     useEffect(() => {
         const data = formatTagData(alkTestData);
         setTagData(data);
         setLoading(false);
     }, [])
-
-    const togglePercentages = () => {
-        setShowPercentages(enabled => !enabled);
-    }
 
     const handleSetSelectedResources = (account, resourceType) => {
         const selectedResources = {
@@ -62,58 +59,44 @@ export const TagAnalysisDashboard = () => {
 
     return (
         <>
-        <TagDashboardOptions 
-            showPercentages={showPercentages}
-            togglePercentages={togglePercentages}
-        />
-        <div className="grid grid-cols-2 gap-x-2 grow content-start">
-            <div className="col-span-2">
-                <TagHeatmap
-                    data={tagData}
-                    onHandleSelectedResources={handleSetSelectedResources}
-                    showPercentages={showPercentages}
-                />
-            </div>
-            <div className="
-                p-4 
-                shadow-inner 
-                bg-slate-100
-                text-slate-800
-                dark:bg-slate-800
-                dark:text-slate-200
-            ">
-                <ResourceTree 
-                    resources={selectedResources}
-                    onHandleResourceDetails={handleSetResourceDetails}
-                />
-                {/* <p>Formatted Tag Data</p>
+            <TagAnalysisOptions 
+                options={options}
+                onUpdateOptions={updateOptions}
+            />
+            <div className="grid grid-cols-2 gap-x-2 grow content-start">
+                <div className="col-span-2">
+                    <TagHeatmap
+                        data={tagData}
+                        onHandleSelectedResources={handleSetSelectedResources}
+                        showPercentages={options.showPercentages}
+                    />
+                </div>
                 <div className="
-                    whitespace-pre-wrap 
-                    text-sm
+                    p-4 
+                    shadow-inner 
+                    bg-slate-100
+                    text-slate-800
+                    dark:bg-slate-800
+                    dark:text-slate-200
                 ">
-                    {JSON.stringify(tagData, null, 3)}
-                </div> */}
-            </div>
-            <div className="
-                p-4 
-                shadow-inner 
-                bg-slate-100
-                text-slate-800
-                dark:bg-slate-800
-                dark:text-slate-200
-            ">
-                <ResourceDetails 
-                    details={resourceDetails}
-                />
-                {/* <p>Raw Test Data (from API):</p>
+                    <ResourceTree 
+                        resources={selectedResources}
+                        onHandleResourceDetails={handleSetResourceDetails}
+                    />
+                </div>
                 <div className="
-                    whitespace-pre-wrap 
-                    text-sm
+                    p-4 
+                    shadow-inner 
+                    bg-slate-100
+                    text-slate-800
+                    dark:bg-slate-800
+                    dark:text-slate-200
                 ">
-                    {JSON.stringify(testJSONData, null, 3)}
-                </div> */}
+                    <ResourceDetails 
+                        details={resourceDetails}
+                    />
+                </div>
             </div>
-        </div>
         </>
     )
 }

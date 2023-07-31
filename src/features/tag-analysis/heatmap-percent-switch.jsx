@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { Space, Switch } from 'antd';
 
-export const PercentSwitcher = ({showPercentages, onTogglePercentages}) => {
+export const HeatmapPercentSwitch = ({ showPercentages, onTogglePercentages }) => {
     return (
         <>
             <Space direction="verticle">
@@ -20,7 +20,7 @@ export const PercentSwitcher = ({showPercentages, onTogglePercentages}) => {
     )
 }
 
-PercentSwitcher.propTypes = {
-    showPercentages: PropTypes.bool.isRequired,
-    onTogglePercentages: PropTypes.func.isRequired
+HeatmapPercentSwitch.propTypes = {
+    showPercentages: PropTypes.bool,
+    onTogglePercentages: PropTypes.func
 }
