@@ -80,7 +80,7 @@ export const required_tags2 = {
     "creation_date",
     "expiration_date",
   ],
-  ami: [
+  privateimage: [
     "platform_id",
     "location",
     "stack",
@@ -98,7 +98,25 @@ export const required_tags2 = {
     "creation_date",
     "expiration_date",
   ],
-  vpc: [
+  servicerole: [
+    "platform_id",
+    "location",
+    "stack",
+    "business_owner",
+    "business_unit",
+    "it_owner",
+    "project",
+    "cost_center",
+    "platform_role",
+    "compliance",
+    "deployed_by",
+    "itsm_id",
+    "os_type",
+    "os_version",
+    "creation_date",
+    "expiration_date",
+  ],
+  privatenetwork: [
     "platform_id",
     "location",
     "stack",
@@ -350,7 +368,7 @@ export const required_tags2 = {
     "expiration_date",
     "internet_facing",
   ],
-  subnet: [
+  privatesubnet: [
     "platform_id",
     "location",
     "stack",
