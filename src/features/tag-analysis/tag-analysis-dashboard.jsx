@@ -5,7 +5,7 @@ import { ResourceTree } from "./resource-tree";
 import { ComponentSpinner } from "@components/spinners";
 import { formatTagData } from "@utils/data-formatting";
 import { ResourceDetails } from "./resource-details";
-import alkTestData from '@utils/test-data';
+// import alkTestData from '@utils/test-data';
 import { useConfigOptions } from "@hooks";
 
 export const TagAnalysisDashboard = () => {
