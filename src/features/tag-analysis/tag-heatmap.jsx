@@ -37,7 +37,7 @@ export const TagHeatmap = ({
       borderColor: "#000000", // Black border for the overall chart
       // height: "33%", // Set height to 100%
       // height: "100%"
-      height: (9/16 * 100) + "%"
+      height: (9/16 * 100) + "%",
     },
 
     title: {

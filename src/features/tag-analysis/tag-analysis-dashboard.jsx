@@ -22,6 +22,7 @@ export const TagAnalysisDashboard = () => {
     }, [])
 
     const handleSetSelectedResources = (account, resourceType) => {
+        // console.log('set tree loading')
         const selectedResources = {
             [account]: tagData[account].filter(
                 r => r.resourceType === resourceType
