@@ -16,7 +16,13 @@ export const TagAnalysisDashboard = () => {
     const [options, updateOptions] = useConfigOptions();
     
     useEffect(() => {
-        const formattedData = formatTagData(alkTestData);
+        const tagDataURL = "";
+        const data = fetch(tagDataURL)
+            .then(response => response.json())
+            .catch(e => console.error("Error fetching data: ", e));
+        const formattedData = formatTagData(data);
+        // const formattedData = formatTagData(alkTestData);
+        // setTagData(data);
         setTagData(formattedData)
         setLoading(false);
     }, [])
