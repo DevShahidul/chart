@@ -2,16 +2,15 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: "class",
   theme: {
     container: {
       center: true,
-      // padding: '2rem',
     },
     extend: {},
   },
+  darkMode: 'class',
   plugins: [],
 }
 

@@ -12,7 +12,7 @@ export const AppLayout = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLayoutLoading(false);
-        }, 1000)
+        }, 500)
         return () => {
             clearTimeout(timer);
         }

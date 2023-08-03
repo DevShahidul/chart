@@ -5,7 +5,7 @@ import { ResourceTree } from "./resource-tree";
 import { ComponentSpinner } from "@components/spinners";
 import { formatTagData } from "@utils/data-formatting";
 import { ResourceDetails } from "./resource-details";
-// import alkTestData from '@utils/test-data';
+import alkTestData from '@utils/test-data';
 import { useConfigOptions } from "@hooks";
 
 export const TagAnalysisDashboard = () => {
@@ -16,12 +16,12 @@ export const TagAnalysisDashboard = () => {
     const [options, updateOptions] = useConfigOptions();
     
     useEffect(() => {
-        const tagDataURL = "";
-        const data = fetch(tagDataURL)
-            .then(response => response.json())
-            .catch(e => console.error("Error fetching data: ", e));
-        const formattedData = formatTagData(data);
-        // const data = formatTagData(alkTestData);
+        // const tagDataURL = "";
+        // const data = fetch(tagDataURL)
+        //     .then(response => response.json())
+        //     .catch(e => console.error("Error fetching data: ", e));
+        // const formattedData = formatTagData(data);
+        const formattedData = formatTagData(alkTestData);
         // setTagData(data);
         setTagData(formattedData)
         setLoading(false);
