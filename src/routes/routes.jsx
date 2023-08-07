@@ -15,7 +15,7 @@ export const routes = [
                 element: <AppLayout />,
                 children: [
                     {
-                        path: '/',
+                        path: '/index.html',
                         element: <HomePage />
                     },
                     {
