@@ -6,7 +6,7 @@ export const NavBar = ({ activeRoute }) => {
     const routes = [
         {
             text: 'Tag Analysis',
-            path: '/'
+            path: '/index.html'
         },
         // {
         //     text: 'Test',

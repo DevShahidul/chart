@@ -7,7 +7,7 @@ export const ResourceDetails = ({ details }) => {
 
     return (
         <div>
-            <p className='font-semibold'>Resource Details</p>
+            <p className='text-sm font-semibold'>Resource Details</p>
             <div className="
                 whitespace-pre-wrap 
                 text-sm
