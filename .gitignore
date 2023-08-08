@@ -12,7 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Config Files
 src/config/aws-exports.js
+
+# Notes
+enhancement-requests
 
 # Editor directories and files
 .vscode/*
