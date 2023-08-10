@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { DarkModeSwitch } from "@theme/dark-switch";
+// import { DarkModeSwitch } from "@theme/dark-switch";
 
 export const NavBar = ({ activeRoute }) => {
     const routes = [
@@ -35,9 +35,9 @@ export const NavBar = ({ activeRoute }) => {
                 />
             )))}
             </div>
-            <div className="text-right">
+            {/* <div className="text-right">
                 <DarkModeSwitch />
-            </div>
+            </div> */}
             
         </nav>
     )
