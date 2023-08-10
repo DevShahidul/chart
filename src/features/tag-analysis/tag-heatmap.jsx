@@ -31,7 +31,7 @@ export const TagHeatmap = ({
   const options = {
     chart: {
       type: "heatmap",
-      marginTop: 40,
+      marginTop: 60,
       marginBottom: 40,
       plotBorderWidth: 1,
       borderColor: "#000000", // Black border for the overall chart
@@ -41,7 +41,7 @@ export const TagHeatmap = ({
     },
 
     title: {
-      text: "Resource Tag Analysis",
+      text: "Missing Tags",
       style: {
         fontSize: "1em",
       },
@@ -49,6 +49,7 @@ export const TagHeatmap = ({
 
     xAxis: {
       categories: heatmapData.xAxisLabels,
+      opposite: true
       // categories: Object.keys(data)
       // categories: ['Alexander', 'Marie', 'Maximilian', 'Sophia', 'Lukas',
       //     'Maria', 'Leon', 'Anna', 'Tim', 'Laura']
@@ -72,10 +73,20 @@ export const TagHeatmap = ({
       },
     },
 
+    // colorAxis: {
+    //   min: 0,
+    //   minColor: "#FFFFFF",
+    //   maxColor: Highcharts.getOptions().colors[4],
+    // },
+
     colorAxis: {
-      min: 0,
-      minColor: "#FFFFFF",
-      maxColor: Highcharts.getOptions().colors[4],
+      stops: [
+          [0, '#f5fff7'],
+          [0.25, '#f5e871'],
+          [0.5, '#fa8f37'],
+          [0.75, '#c4463a']
+      ],
+      min: 0
     },
 
     legend: {
