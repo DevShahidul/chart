@@ -6,35 +6,29 @@ export const ResourceDetails = ({ details }) => {
         return <div>Select a resource to view details.</div>
     }
 
+    const accountName = Object.keys(details)[0]
+    
     return (
         <div className='flex flex-col'>
-            {/* <p className='text-sm font-semibold'>Resource Details</p> */}
-            {Array.isArray(details) ? (
-                <Space 
-                    direction="vertical"
-                    size="middle"
+            {/* this means it's a top level account */}
+            {Array.isArray(details[accountName]) ? (
+                <Space
+                    direction='vertical'
+                    size='middle'
                 >
-                {details.map((resource, i) => (
-                    <ResourceTable 
-                        key={i}
-                        resource={resource}
-                    />  
-                ))}
+                    <span>All resources for {accountName}</span>
+                    {details[accountName].map(resource => (
+                        <ResourceTable 
+                            key={resource.resourceId}
+                            resource={resource}
+                        />
+                    ))}
                 </Space>
             ) : (
                 <ResourceTable 
                     resource={details}
                 />
             )}
-            {/* <div className="
-                whitespace-pre-wrap 
-                text-sm
-            ">
-                {JSON.stringify(details, null, 3)}
-            </div> */}
-            <div>
-                
-            </div>
         </div>
     )
 }
@@ -47,28 +41,28 @@ ResourceDetails.propTypes = {
 
 const ResourceTable = ({ resource }) => {
     const keys = Object.keys(resource);
-    
-    const tableData = keys.map(key => {
-        const value = Array.isArray(resource[key])
-            ? (
+    const tableData = keys.map((key) => {
+        let value = resource[key];
+
+        if (Array.isArray(value)) {
+            value = value.map((tag, k) => (
+                <Tag key={k} bordered={false}>
+                    <span className='font-mono'>{tag}</span>
+                </Tag>
+            ));
+            value = (
                 <Space direction='vertical'>
-                    {resource[key].map(tag => (
-                        <Tag 
-                            key={tag}
-                            bordered={false}
-                        >
-                            <span className='font-mono'>{tag}</span>
-                        </Tag>
-                    ))}
+                    {value}
                 </Space>
-              )
-            : resource[key]
+            );
+        }
+
         return {
-            key: <span className='font-semibold'>{key}</span>,
+            key: key,
             value: value
         }
     })
-
+    
     const columns = [
         {
             title: 'Name',
@@ -82,15 +76,15 @@ const ResourceTable = ({ resource }) => {
             
         }
     ]
-
     return (
         <Table 
             rowClassName="align-top"
             dataSource={tableData}
             columns={columns}
             pagination={false}
+            rowKey={({ key }) => key}
         />
-    )
+    )        
 }
 ResourceTable.propTypes = {
     resource: PropTypes.object

@@ -44,19 +44,15 @@ export const TagAnalysisDashboard = () => {
 
     const handleSetResourceDetails = (accountName, resourceId) => {
         const details = getResourceDetails(accountName, resourceId)
+        // console.log('details: ', details);
         setResourceDetails(details)
     }
 
     const getResourceDetails = (accountName, resourceId) => {
         if(accountName === resourceId) {
-            return tagData[accountName]            
+            return selectedResources;
         }
         const details = tagData[accountName].find(r => r.resourceId === resourceId)
-        // if(!details) {
-        //     return {
-        //         error: `Resource ID (${resourceId}) not found!`
-        //     }
-        // }
         return details;
     }
 
@@ -81,7 +77,7 @@ export const TagAnalysisDashboard = () => {
                         showPercentages={options.showPercentages}
                     />
                 </div>
-                <div className="
+                <div id="resourcetree" className="
                     p-4 
                     shadow-inner 
                     bg-slate-100
