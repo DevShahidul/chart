@@ -31,6 +31,14 @@ export const ResourceTree = ({
             setTreeData(newTreeData);
         }
         setLoading(false)
+        const rt = document.getElementById('resourcetree')
+        if(rt) {
+            rt.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "nearest"
+            })
+        }
     }, [searchValue, formattedTreeData])
 
     const handleSearchValueChange = (e) => {
@@ -102,6 +110,7 @@ const filterTreeData = (treeData, searchTerm) => {
 }
 
 const formatTreeData = (resources) => {
+
     if(Object.keys(resources).length === 0) {
         return [{
             title: '',
