@@ -1,10 +1,10 @@
 // import { TestMap } from "@features/test"
-import Highcharts from 'highcharts'
+import Highcharts from 'highcharts';
 import HighchartsReact from "highcharts-react-official";
 
 const options = {
     chart: {
-        type: 'spline'
+        type: 'heatmap'
     },
     title: {
         text: 'My chart'

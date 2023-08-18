@@ -1,11 +1,13 @@
-import { 
+import {
     AppLayout,
-    RootLayout 
+    RootLayout
 } from "@components/layouts";
-import { 
-    HomePage, 
-    TestPage 
+import {
+    HomePage,
+    TestPage
 } from "@pages";
+import HeatmapComponent from "@pages/HeatMap2";
+import { HeatMap } from "@pages/index";
 
 export const routes = [
     {
@@ -21,6 +23,14 @@ export const routes = [
                     {
                         path: '/test',
                         element: <TestPage />
+                    },
+                    {
+                        path: '/heatmap',
+                        element: <HeatMap />
+                    },
+                    {
+                        path: '/heatmapcom',
+                        element: <HeatmapComponent />
                     }
                 ]
             },
