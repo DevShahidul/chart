@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { HeatmapPercentSwitch } from "./heatmap-percent-switch"
+import { HeatmapPercentSwitch } from "./heatmap-percent-switch";
 
 export const TagAnalysisOptions = ({ options, onUpdateOptions }) => {
 
@@ -8,19 +8,11 @@ export const TagAnalysisOptions = ({ options, onUpdateOptions }) => {
     }
 
     return (
-        <div className="
-            flex
-            px-4 py-2
-            justify-center
-            dark:bg-slate-600
-        ">
-            <span />
-            <span className="font-light text-xs">
-                <HeatmapPercentSwitch 
-                    showPercentages={options.showPercentages}
-                    onTogglePercentages={toggleShowPercentages}
-                />
-            </span>
+        <div className="flex py-2 justify-start dark:bg-slate-600 -mb-[4.5rem] z-10 relative font-inter font-semibold px-3">
+            <HeatmapPercentSwitch 
+                showPercentages={options.showPercentages}
+                onTogglePercentages={toggleShowPercentages}
+            />
         </div>
     )    
 }

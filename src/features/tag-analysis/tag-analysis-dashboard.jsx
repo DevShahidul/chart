@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { TagAnalysisOptions } from "./tag-analysis-options";
-import { TagHeatmap } from "./tag-heatmap"
-import { ResourceTree } from "./resource-tree";
 import { ComponentSpinner } from "@components/spinners";
 import { formatTagData } from "@utils/data-formatting";
+import { useEffect, useState } from "react";
 import { ResourceDetails } from "./resource-details";
+import { ResourceTree } from "./resource-tree";
+import { TagAnalysisOptions } from "./tag-analysis-options";
+import { TagHeatmap } from "./tag-heatmap";
 // import alkTestData from '@utils/test-data';
 import { useConfigOptions } from "@hooks";
 
@@ -64,7 +64,7 @@ export const TagAnalysisDashboard = () => {
     }
 
     return (
-        <>
+        <div className="w-full mt-8">
             <TagAnalysisOptions 
                 options={options}
                 onUpdateOptions={updateOptions}
@@ -103,6 +103,6 @@ export const TagAnalysisDashboard = () => {
                     />
                 </div>
             </div>
-        </>
+        </div>
     )
 }

@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import { ComponentSpinner } from "@components/spinners";
 import Highcharts from "highcharts";
-import HeatmapModule from "highcharts/modules/heatmap";
 import HighchartsReact from "highcharts-react-official";
+import HeatmapModule from "highcharts/modules/heatmap";
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 HeatmapModule(Highcharts);
 
 export const TagHeatmap = ({ 
@@ -31,36 +31,73 @@ export const TagHeatmap = ({
   const options = {
     chart: {
       type: "heatmap",
-      marginTop: 60,
+      marginTop: 130,
       marginBottom: 40,
-      plotBorderWidth: 1,
+      plotBorderWidth: 0,
       borderColor: "#000000", // Black border for the overall chart
-      // height: "33%", // Set height to 100%
-      // height: "100%"
       height: (9/16 * 100) + "%",
     },
-
+    credits: {
+      enabled: false
+    },
     title: {
       text: "Missing Tags",
       style: {
-        fontSize: "1em",
+        fontSize: "3em",
+        fontFamily: 'TT Firs Neue Trl DemiBold'
       },
     },
 
     xAxis: {
       categories: heatmapData.xAxisLabels,
-      opposite: true
-      // categories: Object.keys(data)
-      // categories: ['Alexander', 'Marie', 'Maximilian', 'Sophia', 'Lukas',
-      //     'Maria', 'Leon', 'Anna', 'Tim', 'Laura']
+      opposite: true,
+      
+      gridLineWidth: 0,
+      lineWidth: 0,          
+
+      labels: {
+        // align: 'center',
+        style: {
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '1.125rem',
+            fontWeight: '500',
+            textTransform: 'capotilize',
+            background: '#F6F6F6',
+            color: '#383838'
+        },
+      },
     },
 
     yAxis: {
       categories: heatmapData.yAxisLabels,
-      // categories: requiredTags,
-      // categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       title: null,
       reversed: true,
+      labels: {
+        // align: 'start',
+        distance: 17,
+        enabled: true,
+        format: '{value}',
+        formatter: null,
+        overflow: null,
+        rotation: 0,
+        // x: 0,
+        // y: 0,
+        zIndex: 7,
+        style: {
+            fontFamily: "'Economica', sans-serif",
+            fontSize: '1.375rem',
+            fontWeight: '700',
+            color: '#383838',
+            textAlign: 'left'
+        },
+      },
+      offset: 0,
+
+      gridLineColor: '#FFFFFF', 
+      gridLineDashStyle: 'solid',
+      gridLineWidth: 0, 
+      lineWidth: 0,    
+      gridZIndex: 1,  
     },
 
     accessibility: {
@@ -80,22 +117,45 @@ export const TagHeatmap = ({
     // },
 
     colorAxis: {
+      // stops: [
+      //     [0, '#f5fff7'],
+      //     [0.25, '#f5e871'],
+      //     [0.5, '#fa8f37'],
+      //     [0.75, '#c4463a']
+      // ],
       stops: [
-          [0, '#f5fff7'],
-          [0.25, '#f5e871'],
-          [0.5, '#fa8f37'],
-          [0.75, '#c4463a']
+        [0, '#117D00'],
+        [0.1258, '#32B81D'],
+        [0.2513, '#EDF69F'],
+        [0.3812, '#DFEB70'],
+        [0.5034, '#CADB2A'],
+        [0.6343, '#97CC00'],
+        [0.7532, '#F8BB1D'],
+        [0.8821, '#F36523'],
+        [1, '#ED1B24']
       ],
-      min: 0
+      min: 0,
+      labels: {
+        // align: 'center',
+        y: -23,
+        style: {
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '1.125rem',
+            fontWeight: '600',
+            color: '#1E1E1E'
+        },
+      },
     },
 
     legend: {
       align: "right",
-      layout: "vertical",
+      layout: "horizontal",
       margin: 0,
       verticalAlign: "top",
-      y: 25,
-      symbolHeight: 280,
+      y: -36,
+      symbolWidth: 334, 
+      symbolHeight: 10,
+      // symbolHeight: 380,
     },
 
     tooltip: {
@@ -108,14 +168,17 @@ export const TagHeatmap = ({
     series: [
       {
         name: "Sales per employee",
-        borderWidth: 1,
-        borderColor: "#000000", // Black border for individual cells
+        borderWidth: 5,
+        borderColor: "#FFFFFF", // Black border for individual cells
         data: heatmapData.heatmapSeries,
         dataLabels: {
           enabled: true,
-          color: "#000000",
+          color: "#FFFFFF",
           style: {
-            fontSize: "14px", // Adjust the font size as needed
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '1.125rem',
+            fontWeight: '600',
+            color: '#FFFFFF'
           },
           formatter() {
             return showPercentages 

@@ -2,6 +2,7 @@ import {
     AppLayout,
     RootLayout
 } from "@components/layouts";
+import { TagAnalysisDashboard } from "@features/tag-analysis";
 import {
     HomePage,
     TestPage
@@ -26,6 +27,10 @@ export const routes = [
                     {
                         path: '/',
                         element: <HeatMap />
+                    },
+                    {
+                        path: '/new',
+                        element: <TagAnalysisDashboard />
                     }
                 ]
             },

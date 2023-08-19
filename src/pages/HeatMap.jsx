@@ -25,7 +25,7 @@ const Heatmap = () => {
       categories: ['snapshot', 'privateimage', 'servicerole', 'privatenetwork', 'privatesubnet', 'instance', 'volume'],
       opposite: true,
       labels: {
-        align: 'center',
+        // align: 'center',
         style: {
             fontFamily: "'Inter', sans-serif",
             fontSize: '1.125rem',
@@ -45,11 +45,13 @@ const Heatmap = () => {
             enabled: false
         },
         labels: {
+            // align: 'left',
             style: {
               fontFamily: "'Economica', sans-serif",
               fontSize: '1.375rem',
               fontWeight: '700',
-              color: '#383838'
+              color: '#383838',
+              textAlign: 'left'
             },
           },
         categories: [
@@ -70,6 +72,7 @@ const Heatmap = () => {
             'Alkermes Data&Analytics DEV Account',
             'Alkermes EC2 RI'
         ],
+        // reversed: true,
         offset: 0,
         gridLineColor: '#FFFFFF',
         gridLineWidth: 0,
@@ -88,11 +91,12 @@ const Heatmap = () => {
             [1, '#ED1B24']
         ],
         labels: {
-            align: 'center',
+            // align: 'center',
             y: -23,
             style: {
                 fontFamily: "'Inter', sans-serif",
                 fontSize: '1.125rem',
+                // fontSize: '1.375rem',
                 fontWeight: '600',
                 color: '#1E1E1E'
             },
@@ -100,16 +104,17 @@ const Heatmap = () => {
         // tickInterval: 0
     },
     legend: {
+        //   layout: 'horizontal',
+          // margin: 0,
+        layout: "horizontal",
         align: 'right',
-      //   layout: 'horizontal',
-        margin: 0,
         verticalAlign: 'top',
         y: -36,
         symbolHeight: 10,
-        // width: 300
+        symbolWidth: 334, 
     },
     series: [
-      {
+        {
         name: 'Heatmap',
         
       borderWidth: 5,
@@ -146,8 +151,6 @@ const Heatmap = () => {
         series: {
           pointPadding: 0,
         },
-        yAxes: {
-        }
     },
   };
 
