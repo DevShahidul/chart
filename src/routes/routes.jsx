@@ -25,11 +25,11 @@ export const routes = [
                         element: <TestPage />
                     },
                     {
-                        path: '/',
+                        path: '/static',
                         element: <HeatMap />
                     },
                     {
-                        path: '/new',
+                        path: '/',
                         element: <TagAnalysisDashboard />
                     }
                 ]
