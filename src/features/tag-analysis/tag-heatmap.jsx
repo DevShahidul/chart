@@ -73,14 +73,14 @@ export const TagHeatmap = ({
       title: null,
       reversed: true,
       labels: {
-        align: 'start',
+        // align: 'start',
         distance: 17,
         enabled: true,
         format: '{value}',
         formatter: null,
         overflow: null,
         rotation: 0,
-        x: 0,
+        // x: 0,
         // y: 0,
         zIndex: 7,
         style: {
