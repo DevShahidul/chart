@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import { Space, Switch } from 'antd';
+import PropTypes from "prop-types";
 
 export const HeatmapPercentSwitch = ({ showPercentages, onTogglePercentages }) => {
     return (
@@ -7,7 +7,7 @@ export const HeatmapPercentSwitch = ({ showPercentages, onTogglePercentages }) =
             <Space direction="verticle">
                 Show Percentages
                 <Switch 
-                    size="small"
+                    size="default"
                     className="
                         bg-slate-400
                         dark:bg-slate-500

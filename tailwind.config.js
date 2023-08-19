@@ -8,7 +8,12 @@ export default {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        'economica': ["'Economica', sans-serif"],
+        'inter': ["'Inter', sans-serif"],
+      },
+    },
   },
   darkMode: 'class',
   plugins: [],
