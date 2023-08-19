@@ -80,7 +80,7 @@ export const TagHeatmap = ({
         formatter: null,
         overflow: null,
         rotation: 0,
-        // x: 0,
+        x: 0,
         // y: 0,
         zIndex: 7,
         style: {
@@ -91,7 +91,7 @@ export const TagHeatmap = ({
             textAlign: 'left'
         },
       },
-      offset: 0,
+      offset: 17,
 
       gridLineColor: '#FFFFFF', 
       gridLineDashStyle: 'solid',
