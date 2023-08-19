@@ -6,16 +6,21 @@ const Heatmap = () => {
     chart: {
       type: 'heatmap',
       plotBorderWidth: 0,
+      marginTop: 130,
+      marginBottom: 40,
+      height: (9/16 * 100) + "%",
     },
     plotOptions: {
         series: {
-        //   pointPadding: 0.1,
-          borderWidth: 10,
-          borderColor: '#FFFFFF',
+          pointPadding: 0,
         }
       },
     title: {
       text: 'Missing Tags',
+      style: {
+        fontSize: "3em",
+        fontFamily: 'TT Firs Neue Trl DemiBold'
+      },
     },
     xAxis: {
       categories: ['snapshot', 'privateimage', 'servicerole', 'privatenetwork', 'privatesubnet', 'instance', 'volume'],
@@ -23,14 +28,15 @@ const Heatmap = () => {
       labels: {
         align: 'center',
         style: {
-            fontSize: '12px',
-            fontWeight: 'bold',
-            background: '#F6F6F6'
-          },
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '1.125rem',
+            fontWeight: '500',
+            background: '#F6F6F6',
+            color: '#383838'
+        },
       },
-      gridLineWidth: 0,
-    lineWidth: 0,
-    lineColor: 'rgba(0,0,0,0.75)',
+    lineWidth: 10,
+    lineColor: '#FFFFFF',
     tickWidth: 0,
     tickLength: 0,
     tickColor: 'rgba(0,0,0,0.75)',
@@ -38,6 +44,14 @@ const Heatmap = () => {
       max: 6
     },
     yAxis: {
+        labels: {
+            style: {
+              fontFamily: "'Economica', sans-serif",
+              fontSize: '1.375rem',
+              fontWeight: '700',
+              color: '#383838'
+            },
+          },
         categories: [
             'Alkermes Ent Shared Services NON-PROD Account', 
             'Alkermes GXPAPPS 01 Account', 
@@ -73,7 +87,14 @@ const Heatmap = () => {
         ],
         labels: {
             align: 'center',
-            y: -23
+            y: -23,
+            width: 534,
+            style: {
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '1.375rem',
+                fontWeight: '600',
+                color: '#1E1E1E'
+            },
         },
     },
     legend: {
@@ -81,7 +102,8 @@ const Heatmap = () => {
       //   layout: 'horizontal',
         margin: 0,
         verticalAlign: 'top',
-        y: 25,
+        y: -36,
+        symbolHeight: 10,
     },
     series: [
       {
@@ -89,6 +111,26 @@ const Heatmap = () => {
         
       borderWidth: 1,
       borderColor: 'white',
+      dataLabels: {
+        enabled: true,
+        format: '{point.value}',
+        style: {
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '1.125rem',
+            fontWeight: '600',
+            color: '#FFFFFF'
+          },
+          inside: true,
+          verticalAlign: 'middle',
+          crop: false,
+          overflow: 'none',
+          y: 0, // Adjust the vertical position of the data labels
+          height: null, // Reset the default height of the data labels
+          formatter: function() {
+            const height = 48; // Get the height from the data array
+            return '<div style="height: ' + height + 'px">' + this.point.value + '</div>';
+          },
+      },
       // Set the values on the heatmap as array [hour, day, value]
         data: [
             [0, 1, 0], [0, 2, 0], [0, 3, 1378], [0, 4, 39], [0, 5, 0], [0, 6, 0], [0, 7, 3445], [0, 8, 0], [0, 9, 35407], [0, 10, 29850], [0, 11, 28272], [0, 12, 14057], [0, 13, 3387], [0, 14, 13564], [0, 15, 26],
@@ -106,11 +148,7 @@ const Heatmap = () => {
             [6, 1, 0], [6, 2, 0], [6, 3, 481], [6, 4, 39], [6, 6, 0], [6, 6, 0], [6, 7, 3445], [6, 8, 0], [6, 9, 35407], [6, 10, 29850], [6, 11, 28272], [6, 12, 14057], [6, 13, 3387], [6, 14, 13564], [6, 15, 26],
             
             [7, 1, 0], [7, 2, 0], [7, 3, 481], [7, 4, 39], [7, 7, 0], [7, 7, 0], [7, 7, 3445], [7, 8, 0], [7, 9, 35407], [7, 10, 29850], [7, 11, 28272], [7, 12, 14057], [7, 13, 3387], [7, 14, 13564], [7, 15, 26],
-        ],
-        dataLabels: {
-          enabled: true,
-          color: '#FFFFFF',
-        },
+        ]
       },
     ],
   };

@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Economica:wght@700&family=Inter:wght@500;600&display=swap');
+@font-face {
+    font-family: 'TT Firs Neue Trl DemiBold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('TT Firs Neue Trl DemiBold'), 
+    url('./fonts/TT Firs Neue Trial DemiBold.woff') format('woff');
+}
+
 /* TAILWIND CSS STYLING */
 @tailwind base;
 @tailwind components;
