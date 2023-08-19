@@ -6,7 +6,6 @@ import {
     HomePage,
     TestPage
 } from "@pages";
-import HeatmapComponent from "@pages/HeatMap2";
 import { HeatMap } from "@pages/index";
 
 export const routes = [
@@ -25,25 +24,11 @@ export const routes = [
                         element: <TestPage />
                     },
                     {
-                        path: '/heatmap',
+                        path: '/',
                         element: <HeatMap />
-                    },
-                    {
-                        path: '/heatmapcom',
-                        element: <HeatmapComponent />
                     }
                 ]
             },
-            //ADD OTHER LAYOUTS HERE (i.e. AuthLayout)
-            // {
-            //     element: <AuthLayout />,
-            //     childre: [
-            //         {
-            //             path: '/auth',
-            //             element: <AuthPage />
-            //         }
-            //     ]
-            // }
         ]
     }
 ]
